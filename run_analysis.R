@@ -16,12 +16,12 @@ variable_names <- read.table("./UCI HAR Dataset/features.txt")
 # read activity labels
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
 
-# 1. Merges the training and the test sets to create one data set.
+# 1. Merges the training and the test sets to create one data set
 X_total <- rbind(X_train, X_test)
 Y_total <- rbind(Y_train, Y_test)
 Sub_total <- rbind(Sub_train, Sub_test)
 
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+# 2. Extracts only the measurements on the mean and standard deviation for each measurement
 selected_var <- variable_names[grep("mean\\(\\)|std\\(\\)",variable_names[,2]),]
 X_total <- X_total[,selected_var[,1]]
 
